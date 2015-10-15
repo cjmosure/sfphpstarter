@@ -3,6 +3,7 @@
 <head>
 	<title>Salesforce App</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 					<button id="submitSfSearch" type="submit" class="btn btn-md btn-primary">Search</button>
 				</div>
 			</form>
-			<div id="results" style="margin-top:25px;">
+			<div id="results" class="animated bounceInUp" style="display:none;" style="margin-top:25px;">
 				
 			</div>
 		</div>
@@ -28,6 +29,7 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $( "#accountSearch" ).submit(function( event ) {
+	$('#results').hide();
 	$("#submitSfSearch").html('Loading');
   var account = $("#account").val();
 	var formData = 'account=' + account;
@@ -37,7 +39,8 @@ $( "#accountSearch" ).submit(function( event ) {
 		data: formData,
 		 success: function (data) {
 		 	$("#submitSfSearch").html('Search');
-		 	$('#results').html(data);
+		 	$('#results').html(data).show();
+
 		 },
 	});
   event.preventDefault();
