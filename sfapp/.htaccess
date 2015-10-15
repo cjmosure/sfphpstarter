@@ -1,0 +1,9 @@
+<files connect.php>
+    order allow,deny
+    deny from all
+</files>
+
+<files enterprise.wsdl.xml>
+    order allow,deny
+    deny from all
+</files>
